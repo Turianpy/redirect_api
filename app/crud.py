@@ -5,7 +5,7 @@ def get_pairs(db: Session):
     return db.query(models.Pair).all()
 
 def get_pair_by_key(db: Session, key: str):
-    return db.query(models.Pair).filter(models.Pair.key == key).first()
+    return db.query(models.Pair).filter(models.Pair.keyword == key).first()
 
 def get_pair_by_id(db: Session, id: int):
     return db.query(models.Pair).filter(models.Pair.id == id).first()
