@@ -31,6 +31,15 @@ def update_pair(db: Session, pair: schemas.PairUpdate):
     return db_pair
 
 
+def delete_pair_by_keyword(db: Session, keyword: str):
+    db_pair = db.query(models.Pair).filter(
+        models.Pair.keyword == keyword
+    ).first()
+    db.delete(db_pair)
+    db.commit()
+    return db_pair
+
+
 def delete_pair(db: Session, id: int):
     db_pair = db.query(models.Pair).filter(models.Pair.id == id).first()
     db.delete(db_pair)
