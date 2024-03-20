@@ -4,6 +4,7 @@ from sqlalchemy import String, DateTime, Column
 
 from .db import Base
 
+
 class Pair(Base):
     __tablename__ = "pairs"
 

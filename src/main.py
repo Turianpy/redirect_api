@@ -3,13 +3,13 @@ from fastapi.responses import RedirectResponse
 
 from sqlalchemy.orm import Session
 
-from app import crud, models, schemas
-
-from .db import SessionLocal, engine
+from services import crud, models, schemas
+from services.db import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
 
 def get_db():
     db = SessionLocal()
@@ -17,6 +17,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 @app.get("/")
 def get_all():

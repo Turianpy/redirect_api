@@ -1,7 +1,7 @@
 from datetime import datetime
-from typing import Optional
 
 from pydantic import BaseModel
+
 
 class PairBase(BaseModel):
     keyword: str
@@ -20,6 +20,6 @@ class Pair(PairBase):
     id: int
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
-    
+
     class Config:
         from_attributes = True

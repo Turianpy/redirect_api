@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 SQLALCHEMY_DATABASE_URL = (
     f"postgresql://{os.getenv('POSTGRES_USER')}:"
-    f"{os.getenv('POSTGRES_PASSWORD')}@localhost:5432/redirect_api"
+    f"{os.getenv('POSTGRES_PASSWORD')}@db:5432/{os.getenv('POSTGRES_DB')}"
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
